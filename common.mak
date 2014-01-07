@@ -24,7 +24,7 @@ endif
 ALLFFLIBS = avcodec avdevice avfilter avformat avresample avutil postproc swscale swresample
 
 # NASM requires -I path terminated with /
-IFLAGS     := -I. -I$(SRC_PATH)/
+IFLAGS     := -I. -I$(SRC_PATH)/ -I$(SRC_PATH)/../libde265/
 CPPFLAGS   := $(IFLAGS) $(CPPFLAGS)
 CFLAGS     += $(ECFLAGS)
 CCFLAGS     = $(CPPFLAGS) $(CFLAGS)
@@ -92,6 +92,8 @@ OBJS      += $(OBJS-yes)
 SLIBOBJS  += $(SLIBOBJS-yes)
 FFLIBS    := $(FFLIBS-yes) $(FFLIBS)
 TESTPROGS += $(TESTPROGS-yes)
+
+EXTRALIBS := $(SRC_PATH)/../libde265/libde265/libde265.lib $(EXTRALIBS)
 
 LDLIBS       = $(FFLIBS:%=%$(BUILDSUF))
 FFEXTRALIBS := $(LDLIBS:%=$(LD_LIB)) $(EXTRALIBS)
