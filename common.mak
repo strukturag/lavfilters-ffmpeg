@@ -93,7 +93,7 @@ SLIBOBJS  += $(SLIBOBJS-yes)
 FFLIBS    := $(FFLIBS-yes) $(FFLIBS)
 TESTPROGS += $(TESTPROGS-yes)
 
-EXTRALIBS := $(SRC_PATH)/../libde265/libde265/libde265.lib $(EXTRALIBS)
+EXTRALIBS := $(SRC_PATH)/../libde265/libde265/libde265.dll $(EXTRALIBS)
 
 LDLIBS       = $(FFLIBS:%=%$(BUILDSUF))
 FFEXTRALIBS := $(LDLIBS:%=$(LD_LIB)) $(EXTRALIBS)
